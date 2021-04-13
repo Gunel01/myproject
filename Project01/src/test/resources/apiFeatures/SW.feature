@@ -4,7 +4,7 @@ Feature:
   Scenario
   @SW01
     Given user submits GET request for a list of all the Star Wars characters and receive response
-    And user retrieves Star Wars character IDs from response and add them to a List
+    And user retrieves Star Wars characters from response and add them to a List
     Then user validates status code is 200
     And user validates if value of "characters" in response are same as required.
 
@@ -37,8 +37,9 @@ Feature:
     Then I validate status code is 200
     And I Validate if value of <details> in response are same as required.
     Examples:
+      |module|detail|
       |
-
+      
 
 
 

@@ -12,13 +12,15 @@ package api.stepDefinitions;
 	import static org.junit.Assert.assertEquals;
 	import static org.junit.Assert.assertTrue;
 
+import java.util.List;
+
 	public class SWSteps {
 	    Response response;
 	    String requestData;
 
 	    @Given("user submits GET request for a list of all the Star Wars characters and receive response")
 	    public void SW_Characters_GETRequest() {
-	        RestAssured.baseURI="https://swapi.dev/api/";
+	        RestAssured.baseURI="https://swapi.dev/api/people/1/";
 	        response= given()
 	                .header("Content-Type","application/json")
 	                .body(requestData)
@@ -29,9 +31,11 @@ package api.stepDefinitions;
 
 	    }
 
-	    @And("user retrieves Star Wars character IDs from response and add them to a List")
-	    public void Retrieve_IDs() {
-	    String id =response.getSessionId();
+	    @And("user retrieves Star Wars characters from response and add them to a List")
+	    public void store_characters_in_list() {
+	    	
+	    	
+	      //  List<String> characters =response.a;
 	    }
 
 	    @Then("user validates status code is {int}")
@@ -40,12 +44,7 @@ package api.stepDefinitions;
 
 	    }
 
-	    @And("user validates if value of {string} in response are same as required.")
-	    public void Validate_IfValue(String errorMessage) {
-	        String actualError= JsonPath.read(response.asString(),"$.error.validationErrors[*].message").toString();
-	        System.out.println("ERROR MESSAGE: "+actualError);
-	        assertTrue(actualError.contains(errorMessage));
-	    }
+	   
 	}
 
 
