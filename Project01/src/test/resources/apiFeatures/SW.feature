@@ -31,42 +31,26 @@ Feature:
       |gender     |male            |
       
       
-      @SW04  @negative
-   Scenario Outline: Get the details of a specified Star Wars Character and Verify status code and response are same as expected
-    Given User submits GET request by passing "value" of "detail" and receive response
-    Then  User validate status code is 200
-    And   User Validate if "value" of "detail" in response is same as required.
-    
-    Examples:
-      |detail     |value           |
-      |name       |Luke Skywalker  |
-      |height     |172             |
-      |mass       |77              |
-      |hair_color |blond           |
-      |eye_color  |blue            |
-      |skin_color |fair            |
-      |birth      |19BBY           |
-      |gender     |male            |
 
-    @SW05 @positive 
+    @SW04 @negative 
     Scenario Outline: submit get request with wrong parameter
     Given User submits GET request for the details of a specified Star Wars Character
     And   API should be able to return the details of a specified Star Wars Character
     And   User validates if status code is 200
-    Then  User validates <detail>, <value> in response
+    Then  User validates "detail", "value" in response
 
     Examples:
       |detail     |value           |
-      |name       |Luke Skywalker  |
-      |height     |172             |
-      |mass       |77              |
-      |hair_color |blond           |
-      |eye_color  |blue            |
-      |skin_color |fair            |
-      |birth      |19BBY           |
-      |gender     |male            |
+      |name       |wrongname       |
+      |height     |0000            |
+      |mass       |00              |
+      |hair_color |wrong           |
+      |eye_color  |wrong           |
+      |skin_color |wrong           |
+      |birth      |wrong           |
+      |gender     |wrong           |
 
-     @SW04
+     @SW05 @positive
   Scenario Outline: Get the details of a specified Star Wars haracter and Verify status code and response are same as expected
     Given User submits GET request by passing "value" of "parameter" of character and receive response
     Then  User validate status code is 200
@@ -81,7 +65,7 @@ Feature:
       |climate         |arid          |
       
       
-   @SW05
+   @SW06 @negative
 Scenario Outline: Submit get request by passing wrong parameters of character
     Given user submits GET request by wrong "value" of "parameter" of character and receive response
     Then  User validates if the response status code is 404
