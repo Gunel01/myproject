@@ -17,7 +17,7 @@ Feature:
     Given User submits GET request for the details of a specified Star Wars Character
     And   API should be able to return the details of a specified Star Wars Character
     And   User validates if status code is 200
-    Then  User validates"detail", "value" in response
+    Then  User validates"<detail>", "<value>" in response
 
     Examples:
       |detail     |value           |
@@ -37,7 +37,7 @@ Feature:
     Given User submits GET request for the details of a specified Star Wars Character
     And   API should be able to return the details of a specified Star Wars Character
     And   User validates if status code is 200
-    Then  User validates "detail", "value" in response
+    Then  User validates "<detail>", "<value>" in response
 
     Examples:
       |detail     |value           |
@@ -52,9 +52,9 @@ Feature:
 
      @SW05 @positive
   Scenario Outline: Get the details of a specified Star Wars haracter and Verify status code and response are same as expected
-    Given User submits GET request by passing "value" of "parameter" of character and receive response
+    Given User submits GET request by passing "<value>" of "<parameter>" of character and receive response
     Then  User validate status code is 200
-    And   User Validate if "value" of "parameter" in response is same as required.
+    And   User Validate if "<value>" of "<parameter>" in response is same as required.
     
      Examples:
       |parameter       |value         |
@@ -67,7 +67,7 @@ Feature:
       
    @SW06 @negative
 Scenario Outline: Submit get request by passing wrong parameters of character
-    Given user submits GET request by wrong "value" of "parameter" of character and receive response
+    Given user submits GET request by wrong "<value>" of "<parameter>" of character and receive response
     Then  User validates if the response status code is 404
     And   User validates error message .
     
