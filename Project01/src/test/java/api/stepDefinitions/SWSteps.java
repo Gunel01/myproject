@@ -1,19 +1,13 @@
 package api.stepDefinitions;
-
-
-	import com.jayway.jsonpath.JsonPath;
-
+import com.jayway.jsonpath.JsonPath;
 import io.cucumber.core.api.Scenario;
 import io.cucumber.java.Before;
-
-	import io.cucumber.java.en.Given;
-	import io.cucumber.java.en.Then;
-	import io.restassured.RestAssured;
-	import io.restassured.response.Response;
-
-	import static io.restassured.RestAssured.given;
-	import static org.junit.Assert.assertEquals;
-
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
+import static io.restassured.RestAssured.given;
+import static org.junit.Assert.assertEquals;
 import java.util.List;
 
 	public class SWSteps {
